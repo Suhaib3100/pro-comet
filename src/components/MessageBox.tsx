@@ -69,8 +69,8 @@ const MessageBox = ({
 
   return (
     <div className="space-y-6 animate-fade-in">
-      <div className={'w-full pt-8 break-words'}>
-        <h2 className="text-white font-medium text-3xl lg:w-9/12">
+      <div className={'w-full pt-4 sm:pt-8 break-words'}>
+        <h2 className="text-white font-medium text-xl sm:text-2xl lg:text-3xl lg:w-9/12">
           {section.userMessage.content}
         </h2>
       </div>

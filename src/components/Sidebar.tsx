@@ -31,7 +31,7 @@ const VerticalIconContainer = ({ children }: { children: ReactNode }) => {
 const Sidebar = ({ children }: { children: React.ReactNode }) => {
   const segments = useSelectedLayoutSegments();
   const [isOpen, setIsOpen] = useState<boolean>(true);
-  const { isBrowserOpen, openBrowser, closeBrowser } = useBrowserStore();
+  const { isBrowserOpen, openBrowser, closeBrowser, setMobileView } = useBrowserStore();
 
   const navLinks = [
     {
@@ -57,8 +57,10 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
   const handleBrowserToggle = () => {
     if (isBrowserOpen) {
       closeBrowser();
+      setMobileView('chat');
     } else {
       openBrowser();
+      setMobileView('browser');
     }
   };
 

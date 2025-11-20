@@ -10,6 +10,8 @@ import NextError from 'next/error';
 import { useChat } from '@/lib/hooks/useChat';
 import Loader from './ui/Loader';
 import SettingsButtonMobile from './Settings/SettingsButtonMobile';
+import OnboardingFlow from './Onboarding/OnboardingFlow';
+import { useState, useEffect } from 'react';
 
 export interface BaseMessage {
   chatId: string;
@@ -53,6 +55,26 @@ export interface File {
 
 const ChatWindow = () => {
   const { hasError, isReady, notFound, messages } = useChat();
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
+  useEffect(() => {
+    // Check if user has seen onboarding
+    const hasSeenOnboarding = localStorage.getItem('hasSeenOnboarding');
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    
+    if (!hasSeenOnboarding || !isAuthenticated) {
+      setShowOnboarding(true);
+    }
+  }, []);
+
+  const handleOnboardingComplete = () => {
+    setShowOnboarding(false);
+  };
+
+  if (showOnboarding) {
+    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+  }
+
   if (hasError) {
     return (
       <div className="relative">

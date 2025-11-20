@@ -34,6 +34,14 @@ const MessageSources = ({ sources }: { sources: Document[] }) => {
     e.preventDefault();
     navigateTo(url);
     setMobileView('browser');
+    
+    // Show feedback on mobile
+    if (window.innerWidth < 1024) {
+      const timeout = setTimeout(() => {
+        // Visual feedback handled by browser transition
+      }, 300);
+      return () => clearTimeout(timeout);
+    }
   };
 
   return (

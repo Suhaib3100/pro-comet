@@ -228,15 +228,15 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="sticky -mx-4 lg:mx-0 top-0 z-40 glass-strong backdrop-blur-3xl border-b border-white/10">
-      <div className="px-4 lg:px-6 py-4">
+    <div className="sticky -mx-3 sm:-mx-4 lg:mx-0 top-0 z-40 glass-strong backdrop-blur-3xl border-b border-white/10">
+      <div className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center min-w-0">
             <a
               href="/"
-              className="lg:hidden mr-3 p-2 -ml-2 rounded-xl hover:bg-white/5 smooth-transition"
+              className="lg:hidden mr-2 sm:mr-3 p-1.5 sm:p-2 -ml-1 sm:-ml-2 rounded-xl hover:bg-white/5 smooth-transition active:scale-95"
             >
-              <Edit size={18} className="text-white/70" />
+              <Edit size={16} className="sm:w-[18px] sm:h-[18px] text-white/70" />
             </a>
             <div className="hidden lg:flex items-center gap-2 text-white/50 min-w-0">
               <Clock size={14} />
@@ -244,16 +244,16 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="flex-1 mx-4 min-w-0">
-            <h1 className="text-center text-sm font-medium text-white/90 truncate">
+          <div className="flex-1 mx-2 sm:mx-4 min-w-0">
+            <h1 className="text-center text-xs sm:text-sm font-medium text-white/90 truncate">
               {title || 'New Conversation'}
             </h1>
           </div>
 
-          <div className="flex items-center gap-1 min-w-0">
+          <div className="flex items-center gap-0.5 sm:gap-1 min-w-0">
             <Popover className="relative">
-              <PopoverButton className="p-2 rounded-xl hover:bg-white/5 smooth-transition">
-                <Share size={16} className="text-white/60" />
+              <PopoverButton className="p-1.5 sm:p-2 rounded-xl hover:bg-white/5 smooth-transition active:scale-95">
+                <Share size={14} className="sm:w-4 sm:h-4 text-white/60" />
               </PopoverButton>
               <Transition
                 as={Fragment}

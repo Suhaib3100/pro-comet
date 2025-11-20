@@ -79,7 +79,7 @@ const EmptyChatMessageInput = () => {
               disabled={message.trim().length === 0}
               className="bg-gradient-to-r from-purple-500 to-blue-500 text-white disabled:text-white/30 disabled:from-white/10 disabled:to-white/10 hover:from-purple-600 hover:to-blue-600 smooth-transition rounded-full p-3 sm:p-2.5"
             >
-              <ArrowRight className="bg-background" size={20} className="sm:w-[17px] sm:h-[17px]" />
+              <ArrowRight className="w-5 h-5 sm:w-[17px] sm:h-[17px]" />
             </button>
           </div>
         </div>

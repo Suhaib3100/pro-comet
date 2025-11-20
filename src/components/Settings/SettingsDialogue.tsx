@@ -5,6 +5,7 @@ import {
   ChevronLeft,
   Search,
   Settings,
+  User,
 } from 'lucide-react';
 import General from './Sections/General';
 import { motion } from 'framer-motion';
@@ -14,6 +15,7 @@ import Loader from '../ui/Loader';
 import { cn } from '@/lib/utils';
 import Models from './Sections/Models/Section';
 import SearchSection from './Sections/Search';
+import Account from './Sections/Account';
 import Select from '@/components/ui/Select';
 
 const sections = [
@@ -40,6 +42,14 @@ const sections = [
     icon: Search,
     component: SearchSection,
     dataAdd: 'search',
+  },
+  {
+    key: 'account',
+    name: 'Account',
+    description: 'Manage your account and preferences.',
+    icon: User,
+    component: Account,
+    dataAdd: null,
   },
 ];
 
@@ -176,8 +186,8 @@ const SettingsDialogue = ({
                     </div>
                     <div className="flex-1 overflow-y-auto">
                       <selectedSection.component
-                        fields={config.fields[selectedSection.dataAdd]}
-                        values={config.values[selectedSection.dataAdd]}
+                        fields={config.fields[selectedSection.dataAdd || 'general']}
+                        values={config.values[selectedSection.dataAdd || 'general']}
                       />
                     </div>
                   </div>

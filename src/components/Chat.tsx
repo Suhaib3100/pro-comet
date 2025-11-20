@@ -53,7 +53,7 @@ const Chat = () => {
   }, [chatTurns]);
 
   return (
-    <div className="flex flex-col space-y-6 pt-8 pb-44 lg:pb-32 sm:mx-4 md:mx-8">
+    <div className="flex flex-col space-y-6 pt-4 sm:pt-8 pb-32 sm:pb-44 lg:pb-32 px-3 sm:px-0 sm:mx-4 md:mx-8">
       {sections.map((section, i) => {
         const isLast = i === sections.length - 1;
 
@@ -75,7 +75,7 @@ const Chat = () => {
       <div ref={messageEnd} className="h-0" />
       {dividerWidth > 0 && (
         <div
-          className="bottom-24 lg:bottom-10 fixed z-40"
+          className="bottom-20 sm:bottom-24 lg:bottom-10 fixed z-40 px-3 sm:px-0"
           style={{ width: dividerWidth }}
         >
           <MessageInput />

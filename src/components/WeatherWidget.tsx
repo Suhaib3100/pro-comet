@@ -109,51 +109,51 @@ const WeatherWidget = () => {
   }, []);
 
   return (
-    <div className="glass-strong rounded-3xl liquid-border shadow-xl shadow-black/50 flex flex-row items-center w-full h-24 min-h-[96px] max-h-[96px] px-3 py-2 gap-3 hover:border-white/20 smooth-transition">
+    <div className="glass-strong rounded-2xl sm:rounded-3xl liquid-border shadow-xl shadow-black/50 flex flex-row items-center w-full h-20 sm:h-24 min-h-[80px] sm:min-h-[96px] max-h-[80px] sm:max-h-[96px] px-2.5 sm:px-3 py-2 gap-2 sm:gap-3 hover:border-white/20 smooth-transition active:scale-[0.98]">
       {loading ? (
         <>
-          <div className="flex flex-col items-center justify-center w-16 min-w-16 max-w-16 h-full animate-pulse">
-            <div className="h-10 w-10 rounded-full glass mb-2" />
-            <div className="h-4 w-10 rounded glass" />
+          <div className="flex flex-col items-center justify-center w-12 sm:w-16 min-w-12 sm:min-w-16 max-w-12 sm:max-w-16 h-full animate-pulse">
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full glass mb-1 sm:mb-2" />
+            <div className="h-3 w-8 sm:h-4 sm:w-10 rounded glass" />
           </div>
           <div className="flex flex-col justify-between flex-1 h-full py-1 animate-pulse">
             <div className="flex flex-row items-center justify-between">
-              <div className="h-3 w-20 rounded glass" />
-              <div className="h-3 w-12 rounded glass" />
+              <div className="h-2.5 sm:h-3 w-16 sm:w-20 rounded glass" />
+              <div className="h-2.5 sm:h-3 w-10 sm:w-12 rounded glass" />
             </div>
-            <div className="h-3 w-16 rounded glass mt-1" />
+            <div className="h-2.5 sm:h-3 w-12 sm:w-16 rounded glass mt-1" />
             <div className="flex flex-row justify-between w-full mt-auto pt-1 border-t border-white/10">
-              <div className="h-3 w-16 rounded glass" />
-              <div className="h-3 w-8 rounded glass" />
+              <div className="h-2.5 sm:h-3 w-12 sm:w-16 rounded glass" />
+              <div className="h-2.5 sm:h-3 w-6 sm:w-8 rounded glass" />
             </div>
           </div>
         </>
       ) : (
         <>
-          <div className="flex flex-col items-center justify-center w-16 min-w-16 max-w-16 h-full">
+          <div className="flex flex-col items-center justify-center w-12 sm:w-16 min-w-12 sm:min-w-16 max-w-12 sm:max-w-16 h-full">
             <img
               src={`/weather-ico/${data.icon}.svg`}
               alt={data.condition}
-              className="h-10 w-auto"
+              className="h-8 w-auto sm:h-10"
             />
-            <span className="text-base font-semibold text-white">
+            <span className="text-sm sm:text-base font-semibold text-white">
               {data.temperature}°{data.temperatureUnit}
             </span>
           </div>
-          <div className="flex flex-col justify-between flex-1 h-full py-2">
+          <div className="flex flex-col justify-between flex-1 h-full py-1.5 sm:py-2">
             <div className="flex flex-row items-center justify-between">
-              <span className="text-sm font-semibold text-white">
+              <span className="text-xs sm:text-sm font-semibold text-white truncate">
                 {data.location}
               </span>
-              <span className="flex items-center text-xs text-white/60 font-medium">
-                <Wind className="w-3 h-3 mr-1" />
+              <span className="flex items-center text-[10px] sm:text-xs text-white/60 font-medium ml-2">
+                <Wind className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-0.5 sm:mr-1" />
                 {data.windSpeed} {data.windSpeedUnit}
               </span>
             </div>
-            <span className="text-xs text-white/50 italic">
+            <span className="text-[10px] sm:text-xs text-white/50 italic truncate">
               {data.condition}
             </span>
-            <div className="flex flex-row justify-between w-full mt-auto pt-2 border-t border-white/10 text-xs text-white/50 font-medium">
+            <div className="flex flex-row justify-between w-full mt-auto pt-1.5 sm:pt-2 border-t border-white/10 text-[10px] sm:text-xs text-white/50 font-medium">
               <span>Humidity {data.humidity}%</span>
               <span className="font-semibold text-white/70">
                 Now

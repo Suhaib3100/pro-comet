@@ -57,29 +57,29 @@ const BrowserLayout = ({ children }: BrowserLayoutProps) => {
         {/* Chat View */}
         <div
           className={cn(
-            'h-full overflow-y-auto transition-opacity duration-200',
-            mobileView === 'chat' ? 'block' : 'hidden'
+            'h-full overflow-y-auto smooth-transition',
+            mobileView === 'chat' ? 'block animate-fade-in' : 'hidden'
           )}
         >
           {children}
         </div>
 
-        {/* Search View */}
+        {/* Search View - Hidden, not used in new mobile design */}
         <div
           className={cn(
-            'h-full overflow-y-auto transition-opacity duration-200',
-            mobileView === 'search' ? 'block' : 'hidden'
+            'h-full overflow-y-auto smooth-transition',
+            mobileView === 'search' ? 'block animate-fade-in' : 'hidden'
           )}
         >
           <div className="flex flex-col h-full">
             <MobileBrowserSearch />
             <div className="flex-1 flex items-center justify-center p-8 text-center">
               <div>
-                <Search size={64} className="text-black/20 dark:text-white/20 mb-4 mx-auto" />
-                <h3 className="text-lg font-medium text-black dark:text-white mb-2">
+                <Search size={64} className="text-white/20 mb-4 mx-auto" />
+                <h3 className="text-lg font-medium text-white mb-2">
                   Quick Browser Access
                 </h3>
-                <p className="text-sm text-black/50 dark:text-white/50 max-w-md">
+                <p className="text-sm text-white/50 max-w-md">
                   Enter a URL or search term above to browse the web
                 </p>
               </div>
@@ -90,54 +90,12 @@ const BrowserLayout = ({ children }: BrowserLayoutProps) => {
         {/* Browser View */}
         <div
           className={cn(
-            'h-full transition-opacity duration-200',
-            mobileView === 'browser' ? 'block' : 'hidden'
+            'h-full smooth-transition',
+            mobileView === 'browser' ? 'block animate-slide-up' : 'hidden'
           )}
         >
           <BrowserView />
         </div>
-      </div>
-
-      {/* Mobile Bottom Tabs */}
-      <div className="flex border-t border-light-200 dark:border-dark-200 bg-light-secondary dark:bg-dark-secondary">
-        <button
-          onClick={() => setMobileView('chat')}
-          className={cn(
-            'flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors',
-            mobileView === 'chat'
-              ? 'text-black dark:text-white bg-light-primary dark:bg-dark-primary'
-              : 'text-black/50 dark:text-white/50'
-          )}
-        >
-          <MessageSquare size={20} />
-          <span className="text-xs font-medium">Chat</span>
-        </button>
-
-        <button
-          onClick={() => setMobileView('search')}
-          className={cn(
-            'flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors',
-            mobileView === 'search'
-              ? 'text-black dark:text-white bg-light-primary dark:bg-dark-primary'
-              : 'text-black/50 dark:text-white/50'
-          )}
-        >
-          <Search size={20} />
-          <span className="text-xs font-medium">Search</span>
-        </button>
-
-        <button
-          onClick={() => setMobileView('browser')}
-          className={cn(
-            'flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors',
-            mobileView === 'browser'
-              ? 'text-black dark:text-white bg-light-primary dark:bg-dark-primary'
-              : 'text-black/50 dark:text-white/50'
-          )}
-        >
-          <Globe size={20} />
-          <span className="text-xs font-medium">Browser</span>
-        </button>
       </div>
     </div>
   );
