@@ -20,7 +20,7 @@ const Copy = ({
         setCopied(true);
         setTimeout(() => setCopied(false), 1000);
       }}
-      className="p-2 text-black/70 dark:text-white/70 rounded-xl hover:bg-light-secondary dark:hover:bg-dark-secondary transition duration-200 hover:text-black dark:hover:text-white"
+      className="p-2 text-white/70 rounded-xl hover:bg-white/5 glass liquid-border smooth-transition hover:text-white"
     >
       {copied ? <Check size={18} /> : <ClipboardList size={18} />}
     </button>

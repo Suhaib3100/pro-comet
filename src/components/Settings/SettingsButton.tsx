@@ -9,10 +9,10 @@ const SettingsButton = () => {
   return (
     <>
       <div
-        className="p-2.5 rounded-full bg-light-200 text-black/70 dark:bg-dark-200 dark:text-white/70 hover:opacity-70 hover:scale-105 transition duration-200 cursor-pointer active:scale-95"
+        className="p-2.5 rounded-2xl glass liquid-border hover:bg-white/10 smooth-transition cursor-pointer active:scale-95"
         onClick={() => setIsOpen(true)}
       >
-        <Settings size={19} className="cursor-pointer" />
+        <Settings size={19} className="cursor-pointer text-white/90" />
       </div>
       <AnimatePresence>
         {isOpen && <SettingsDialogue isOpen={isOpen} setIsOpen={setIsOpen} />}

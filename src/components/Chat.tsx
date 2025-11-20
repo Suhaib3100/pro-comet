@@ -66,7 +66,7 @@ const Chat = () => {
               isLast={isLast}
             />
             {!isLast && (
-              <div className="h-px w-full bg-light-secondary dark:bg-dark-secondary" />
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             )}
           </Fragment>
         );

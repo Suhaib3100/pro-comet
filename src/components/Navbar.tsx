@@ -228,32 +228,32 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="sticky -mx-4 lg:mx-0 top-0 z-40 bg-light-primary/95 dark:bg-dark-primary/95 backdrop-blur-sm border-b border-light-200/50 dark:border-dark-200/30">
+    <div className="sticky -mx-4 lg:mx-0 top-0 z-40 glass-strong backdrop-blur-3xl border-b border-white/10">
       <div className="px-4 lg:px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center min-w-0">
             <a
               href="/"
-              className="lg:hidden mr-3 p-2 -ml-2 rounded-lg hover:bg-light-secondary dark:hover:bg-dark-secondary transition-colors duration-200"
+              className="lg:hidden mr-3 p-2 -ml-2 rounded-xl hover:bg-white/5 smooth-transition"
             >
-              <Edit size={18} className="text-black/70 dark:text-white/70" />
+              <Edit size={18} className="text-white/70" />
             </a>
-            <div className="hidden lg:flex items-center gap-2 text-black/50 dark:text-white/50 min-w-0">
+            <div className="hidden lg:flex items-center gap-2 text-white/50 min-w-0">
               <Clock size={14} />
               <span className="text-xs whitespace-nowrap">{timeAgo} ago</span>
             </div>
           </div>
 
           <div className="flex-1 mx-4 min-w-0">
-            <h1 className="text-center text-sm font-medium text-black/80 dark:text-white/90 truncate">
+            <h1 className="text-center text-sm font-medium text-white/90 truncate">
               {title || 'New Conversation'}
             </h1>
           </div>
 
           <div className="flex items-center gap-1 min-w-0">
             <Popover className="relative">
-              <PopoverButton className="p-2 rounded-lg hover:bg-light-secondary dark:hover:bg-dark-secondary transition-colors duration-200">
-                <Share size={16} className="text-black/60 dark:text-white/60" />
+              <PopoverButton className="p-2 rounded-xl hover:bg-white/5 smooth-transition">
+                <Share size={16} className="text-white/60" />
               </PopoverButton>
               <Transition
                 as={Fragment}
@@ -264,38 +264,38 @@ const Navbar = () => {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <PopoverPanel className="absolute right-0 mt-2 w-64 origin-top-right rounded-2xl bg-light-primary dark:bg-dark-primary border border-light-200 dark:border-dark-200 shadow-xl shadow-black/10 dark:shadow-black/30 z-50">
+                <PopoverPanel className="absolute right-0 mt-2 w-64 origin-top-right rounded-3xl glass-strong liquid-border shadow-2xl shadow-black/50 z-50">
                   <div className="p-3">
                     <div className="mb-2">
-                      <p className="text-xs font-medium text-black/40 dark:text-white/40 uppercase tracking-wide">
+                      <p className="text-xs font-medium text-white/40 uppercase tracking-wide">
                         Export Chat
                       </p>
                     </div>
                     <div className="space-y-1">
                       <button
-                        className="w-full flex items-center gap-3 px-3 py-2 text-left rounded-xl hover:bg-light-secondary dark:hover:bg-dark-secondary transition-colors duration-200"
+                        className="w-full flex items-center gap-3 px-3 py-2 text-left rounded-2xl hover:bg-white/5 smooth-transition"
                         onClick={() => exportAsMarkdown(sections, title || '')}
                       >
-                        <FileText size={16} className="text-[#24A0ED]" />
+                        <FileText size={16} className="text-purple-400" />
                         <div>
-                          <p className="text-sm font-medium text-black dark:text-white">
+                          <p className="text-sm font-medium text-white">
                             Markdown
                           </p>
-                          <p className="text-xs text-black/50 dark:text-white/50">
+                          <p className="text-xs text-white/50">
                             .md format
                           </p>
                         </div>
                       </button>
                       <button
-                        className="w-full flex items-center gap-3 px-3 py-2 text-left rounded-xl hover:bg-light-secondary dark:hover:bg-dark-secondary transition-colors duration-200"
+                        className="w-full flex items-center gap-3 px-3 py-2 text-left rounded-2xl hover:bg-white/5 smooth-transition"
                         onClick={() => exportAsPDF(sections, title || '')}
                       >
-                        <FileDown size={16} className="text-[#24A0ED]" />
+                        <FileDown size={16} className="text-purple-400" />
                         <div>
-                          <p className="text-sm font-medium text-black dark:text-white">
+                          <p className="text-sm font-medium text-white">
                             PDF
                           </p>
-                          <p className="text-xs text-black/50 dark:text-white/50">
+                          <p className="text-xs text-white/50">
                             Document format
                           </p>
                         </div>
