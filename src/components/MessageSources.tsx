@@ -40,18 +40,18 @@ const MessageSources = ({ sources }: { sources: Document[] }) => {
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
       {sources.slice(0, 3).map((source, i) => (
         <a
-          className="bg-light-100 hover:bg-light-200 dark:bg-dark-100 dark:hover:bg-dark-200 transition duration-200 rounded-lg p-3 flex flex-col space-y-2 font-medium cursor-pointer"
+          className="glass liquid-border hover:bg-white/5 smooth-transition rounded-2xl p-3 flex flex-col space-y-2 font-medium cursor-pointer"
           key={i}
           href={source.metadata.url}
           onClick={(e) => handleSourceClick(e, source.metadata.url)}
         >
-          <p className="dark:text-white text-xs overflow-hidden whitespace-nowrap text-ellipsis">
+          <p className="text-white/90 text-xs overflow-hidden whitespace-nowrap text-ellipsis">
             {source.metadata.title}
           </p>
           <div className="flex flex-row items-center justify-between">
             <div className="flex flex-row items-center space-x-1">
               {source.metadata.url === 'File' ? (
-                <div className="bg-dark-200 hover:bg-dark-100 transition duration-200 flex items-center justify-center w-6 h-6 rounded-full">
+                <div className="glass hover:bg-white/10 smooth-transition flex items-center justify-center w-6 h-6 rounded-full">
                   <File size={12} className="text-white/70" />
                 </div>
               ) : (
@@ -63,12 +63,12 @@ const MessageSources = ({ sources }: { sources: Document[] }) => {
                   className="rounded-lg h-4 w-4"
                 />
               )}
-              <p className="text-xs text-black/50 dark:text-white/50 overflow-hidden whitespace-nowrap text-ellipsis">
+              <p className="text-xs text-white/50 overflow-hidden whitespace-nowrap text-ellipsis">
                 {source.metadata.url.replace(/.+\/\/|www.|\..+/g, '')}
               </p>
             </div>
-            <div className="flex flex-row items-center space-x-1 text-black/50 dark:text-white/50 text-xs">
-              <div className="bg-black/50 dark:bg-white/50 h-[4px] w-[4px] rounded-full" />
+            <div className="flex flex-row items-center space-x-1 text-white/50 text-xs">
+              <div className="bg-white/50 h-[4px] w-[4px] rounded-full" />
               <span>{i + 1}</span>
             </div>
           </div>
@@ -77,14 +77,14 @@ const MessageSources = ({ sources }: { sources: Document[] }) => {
       {sources.length > 3 && (
         <button
           onClick={openModal}
-          className="bg-light-100 hover:bg-light-200 dark:bg-dark-100 dark:hover:bg-dark-200 transition duration-200 rounded-lg p-3 flex flex-col space-y-2 font-medium"
+          className="glass liquid-border hover:bg-white/5 smooth-transition rounded-2xl p-3 flex flex-col space-y-2 font-medium"
         >
           <div className="flex flex-row items-center space-x-1">
             {sources.slice(3, 6).map((source, i) => {
               return source.metadata.url === 'File' ? (
                 <div
                   key={i}
-                  className="bg-dark-200 hover:bg-dark-100 transition duration-200 flex items-center justify-center w-6 h-6 rounded-full"
+                  className="glass hover:bg-white/10 smooth-transition flex items-center justify-center w-6 h-6 rounded-full"
                 >
                   <File size={12} className="text-white/70" />
                 </div>

@@ -64,8 +64,8 @@ const MessageInput = () => {
         }
       }}
       className={cn(
-        'bg-light-secondary dark:bg-dark-secondary p-4 flex items-center overflow-hidden border border-light-200 dark:border-dark-200 shadow-sm shadow-light-200/10 dark:shadow-black/20 transition-all duration-200 focus-within:border-light-300 dark:focus-within:border-dark-300',
-        mode === 'multi' ? 'flex-col rounded-2xl' : 'flex-row rounded-full',
+        'glass-strong p-4 flex items-center overflow-hidden liquid-border shadow-xl shadow-black/50 smooth-transition focus-within:shadow-purple-500/20',
+        mode === 'multi' ? 'flex-col rounded-3xl' : 'flex-row rounded-full',
       )}
     >
       {mode === 'single' && <AttachSmall />}
@@ -76,7 +76,7 @@ const MessageInput = () => {
         onHeightChange={(height, props) => {
           setTextareaRows(Math.ceil(height / props.rowHeight));
         }}
-        className="transition bg-transparent dark:placeholder:text-white/50 placeholder:text-sm text-sm dark:text-white resize-none focus:outline-none w-full px-2 max-h-24 lg:max-h-36 xl:max-h-48 flex-grow flex-shrink"
+        className="smooth-transition bg-transparent placeholder:text-white/40 placeholder:text-sm text-sm text-white resize-none focus:outline-none w-full px-2 max-h-24 lg:max-h-36 xl:max-h-48 flex-grow flex-shrink"
         placeholder="Ask a follow-up"
       />
       {mode === 'single' && (
@@ -87,7 +87,7 @@ const MessageInput = () => {
           />
           <button
             disabled={message.trim().length === 0 || loading}
-            className="bg-[#24A0ED] text-white disabled:text-black/50 dark:disabled:text-white/50 hover:bg-opacity-85 transition duration-100 disabled:bg-[#e0e0dc79] dark:disabled:bg-[#ececec21] rounded-full p-2"
+            className="bg-gradient-to-r from-purple-500 to-blue-500 text-white disabled:text-white/30 hover:from-purple-600 hover:to-blue-600 smooth-transition disabled:from-white/10 disabled:to-white/10 rounded-full p-2.5"
           >
             <ArrowUp className="bg-background" size={17} />
           </button>
@@ -103,7 +103,7 @@ const MessageInput = () => {
             />
             <button
               disabled={message.trim().length === 0 || loading}
-              className="bg-[#24A0ED] text-white text-black/50 dark:disabled:text-white/50 hover:bg-opacity-85 transition duration-100 disabled:bg-[#e0e0dc79] dark:disabled:bg-[#ececec21] rounded-full p-2"
+              className="bg-gradient-to-r from-purple-500 to-blue-500 text-white disabled:text-white/30 hover:from-purple-600 hover:to-blue-600 smooth-transition disabled:from-white/10 disabled:to-white/10 rounded-full p-2.5"
             >
               <ArrowUp className="bg-background" size={17} />
             </button>

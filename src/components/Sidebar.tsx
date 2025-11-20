@@ -64,13 +64,13 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div>
-      <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-[72px] lg:flex-col border-r border-light-200 dark:border-dark-200">
-        <div className="flex grow flex-col items-center justify-between gap-y-5 overflow-y-auto bg-light-secondary dark:bg-dark-secondary px-2 py-8 shadow-sm shadow-light-200/10 dark:shadow-black/25">
+      <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-[72px] lg:flex-col border-r border-white/5">
+        <div className="flex grow flex-col items-center justify-between gap-y-5 overflow-y-auto glass-strong px-2 py-8">
           <a
-            className="p-2.5 rounded-full bg-light-200 text-black/70 dark:bg-dark-200 dark:text-white/70 hover:opacity-70 hover:scale-105 tansition duration-200"
+            className="p-2.5 rounded-2xl glass liquid-border hover:bg-white/10 smooth-transition"
             href="/"
           >
-            <Plus size={19} className="cursor-pointer" />
+            <Plus size={19} className="cursor-pointer text-white/90" />
           </a>
           <VerticalIconContainer>
             {navLinks.map((link, i) => (
@@ -78,31 +78,31 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
                 key={i}
                 href={link.href}
                 className={cn(
-                  'relative flex flex-col items-center justify-center space-y-0.5 cursor-pointer w-full py-2 rounded-lg',
+                  'relative flex flex-col items-center justify-center space-y-0.5 cursor-pointer w-full py-2 rounded-xl smooth-transition',
                   link.active
-                    ? 'text-black/70 dark:text-white/70 '
-                    : 'text-black/60 dark:text-white/60',
+                    ? 'text-white/90'
+                    : 'text-white/50',
                 )}
               >
                 <div
                   className={cn(
-                    link.active && 'bg-light-200 dark:bg-dark-200',
-                    'group rounded-lg hover:bg-light-200 hover:dark:bg-dark-200 transition duration-200',
+                    link.active && 'glass',
+                    'group rounded-2xl hover:glass hover:bg-white/5 smooth-transition',
                   )}
                 >
                   <link.icon
                     size={25}
                     className={cn(
                       !link.active && 'group-hover:scale-105',
-                      'transition duration:200 m-1.5',
+                      'smooth-transition m-1.5',
                     )}
                   />
                 </div>
                 <p
                   className={cn(
                     link.active
-                      ? 'text-black/80 dark:text-white/80'
-                      : 'text-black/60 dark:text-white/60',
+                      ? 'text-white/90'
+                      : 'text-white/60',
                     'text-[10px]',
                   )}
                 >
@@ -115,31 +115,31 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
             <button
               onClick={handleBrowserToggle}
               className={cn(
-                'relative flex flex-col items-center justify-center space-y-0.5 cursor-pointer w-full py-2 rounded-lg',
+                'relative flex flex-col items-center justify-center space-y-0.5 cursor-pointer w-full py-2 rounded-xl smooth-transition',
                 isBrowserOpen
-                  ? 'text-black/70 dark:text-white/70'
-                  : 'text-black/60 dark:text-white/60',
+                  ? 'text-white/90'
+                  : 'text-white/50',
               )}
             >
               <div
                 className={cn(
-                  isBrowserOpen && 'bg-light-200 dark:bg-dark-200',
-                  'group rounded-lg hover:bg-light-200 hover:dark:bg-dark-200 transition duration-200',
+                  isBrowserOpen && 'glass',
+                  'group rounded-2xl hover:glass hover:bg-white/5 smooth-transition',
                 )}
               >
                 <Globe
                   size={25}
                   className={cn(
                     !isBrowserOpen && 'group-hover:scale-105',
-                    'transition duration:200 m-1.5',
+                    'smooth-transition m-1.5',
                   )}
                 />
               </div>
               <p
                 className={cn(
                   isBrowserOpen
-                    ? 'text-black/80 dark:text-white/80'
-                    : 'text-black/60 dark:text-white/60',
+                    ? 'text-white/90'
+                    : 'text-white/60',
                   'text-[10px]',
                 )}
               >
@@ -152,20 +152,20 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-full z-50 flex flex-row items-center gap-x-6 bg-light-secondary dark:bg-dark-secondary px-4 py-4 shadow-sm lg:hidden">
+      <div className="fixed bottom-0 w-full z-50 flex flex-row items-center gap-x-6 glass-strong px-4 py-4 border-t border-white/5 lg:hidden">
         {navLinks.map((link, i) => (
           <Link
             href={link.href}
             key={i}
             className={cn(
-              'relative flex flex-col items-center space-y-1 text-center w-full',
+              'relative flex flex-col items-center space-y-1 text-center w-full smooth-transition',
               link.active
-                ? 'text-black dark:text-white'
-                : 'text-black dark:text-white/70',
+                ? 'text-white'
+                : 'text-white/60',
             )}
           >
             {link.active && (
-              <div className="absolute top-0 -mt-4 h-1 w-full rounded-b-lg bg-black dark:bg-white" />
+              <div className="absolute top-0 -mt-4 h-1 w-full rounded-b-lg bg-white/80" />
             )}
             <link.icon />
             <p className="text-xs">{link.label}</p>
