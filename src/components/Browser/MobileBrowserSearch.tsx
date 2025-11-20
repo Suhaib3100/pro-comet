@@ -15,8 +15,10 @@ const MobileBrowserSearch = () => {
     
     // Add protocol if missing
     if (!url.startsWith('http://') && !url.startsWith('https://')) {
-      // Check if it looks like a domain
-      if (url.includes('.') && !url.includes(' ')) {
+      // Check if it looks like a domain (has TLD like .com, .in, .org, etc.)
+      const domainPattern = /\.(com|in|org|net|edu|gov|co|io|ai|dev|app|tech|info|biz|me|tv|us|uk|ca|au|de|fr|jp|cn|ru|br|mx|es|it|nl|se|no|dk|fi|pl|cz|gr|tr|za|sg|hk|nz|kr|tw|th|my|id|ph|vn|pk|bd|eg|ng|ke|gh|ug|tz|zw|zm|mw|bw|na|ao|mz|et|sd|dz|ma|tn|ly|so|dj|er|gm|gn|lr|ml|mr|ne|sn|sl|tg|bf|bj|ci|cv|gw|st|ga|cg|cd|cf|cm|gq|td|rw|bi|km|sc|mu|re|yt|mg|mq|gp|bl|mf|pm|wf|pf|nc|vu|fj|sb|pg|ki|nr|tv|to|ws|as|gu|mp|pw|fm|mh)($|\/)/i;
+      
+      if (domainPattern.test(url) || (url.includes('.') && !url.includes(' '))) {
         url = 'https://' + url;
       } else {
         // Treat as search query

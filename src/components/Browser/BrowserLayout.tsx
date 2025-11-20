@@ -88,16 +88,14 @@ const BrowserLayout = ({ children }: BrowserLayoutProps) => {
         </div>
 
         {/* Browser View */}
-        {isBrowserOpen && (
-          <div
-            className={cn(
-              'h-full transition-opacity duration-200',
-              mobileView === 'browser' ? 'block' : 'hidden'
-            )}
-          >
-            <BrowserView />
-          </div>
-        )}
+        <div
+          className={cn(
+            'h-full transition-opacity duration-200',
+            mobileView === 'browser' ? 'block' : 'hidden'
+          )}
+        >
+          <BrowserView />
+        </div>
       </div>
 
       {/* Mobile Bottom Tabs */}
@@ -128,20 +126,18 @@ const BrowserLayout = ({ children }: BrowserLayoutProps) => {
           <span className="text-xs font-medium">Search</span>
         </button>
 
-        {isBrowserOpen && (
-          <button
-            onClick={() => setMobileView('browser')}
-            className={cn(
-              'flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors',
-              mobileView === 'browser'
-                ? 'text-black dark:text-white bg-light-primary dark:bg-dark-primary'
-                : 'text-black/50 dark:text-white/50'
-            )}
-          >
-            <Globe size={20} />
-            <span className="text-xs font-medium">Browser</span>
-          </button>
-        )}
+        <button
+          onClick={() => setMobileView('browser')}
+          className={cn(
+            'flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors',
+            mobileView === 'browser'
+              ? 'text-black dark:text-white bg-light-primary dark:bg-dark-primary'
+              : 'text-black/50 dark:text-white/50'
+          )}
+        >
+          <Globe size={20} />
+          <span className="text-xs font-medium">Browser</span>
+        </button>
       </div>
     </div>
   );

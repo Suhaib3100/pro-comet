@@ -8,6 +8,7 @@ import {
   X,
   ExternalLink,
   Globe,
+  ChevronLeft,
 } from 'lucide-react';
 import { useState, useEffect, KeyboardEvent } from 'react';
 import { cn } from '@/lib/utils';
@@ -23,16 +24,27 @@ const BrowserView = () => {
     reload,
     closeBrowser,
     navigateTo,
+    setMobileView,
   } = useBrowserStore();
 
   const [urlInput, setUrlInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (currentUrl) {
       setUrlInput(currentUrl);
     }
   }, [currentUrl]);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const canGoBack = historyIndex > 0;
   const canGoForward = historyIndex < history.length - 1;
@@ -44,8 +56,10 @@ const BrowserView = () => {
     
     // Add protocol if missing
     if (!url.startsWith('http://') && !url.startsWith('https://')) {
-      // Check if it looks like a domain
-      if (url.includes('.') && !url.includes(' ')) {
+      // Check if it looks like a domain (has TLD like .com, .in, .org, etc.)
+      const domainPattern = /\.(com|in|org|net|edu|gov|co|io|ai|dev|app|tech|info|biz|me|tv|us|uk|ca|au|de|fr|jp|cn|ru|br|mx|es|it|nl|se|no|dk|fi|pl|cz|gr|tr|za|sg|hk|nz|kr|tw|th|my|id|ph|vn|pk|bd|eg|ng|ke|gh|ug|tz|zw|zm|mw|bw|na|ao|mz|et|sd|dz|ma|tn|ly|so|dj|er|gm|gn|lr|ml|mr|ne|sn|sl|tg|bf|bj|ci|cv|gw|st|ga|cg|cd|cf|cm|gq|td|rw|bi|km|sc|mu|re|yt|mg|mq|gp|bl|mf|pm|wf|pf|nc|vu|fj|sb|pg|ki|nr|tv|to|ws|as|gu|mp|pw|fm|mh)($|\/)/i;
+      
+      if (domainPattern.test(url) || (url.includes('.') && !url.includes(' '))) {
         url = 'https://' + url;
       } else {
         // Treat as search query
@@ -81,6 +95,16 @@ const BrowserView = () => {
       <div className="flex flex-col border-b border-light-200 dark:border-dark-200 bg-light-primary dark:bg-dark-primary">
         {/* Top bar with navigation controls */}
         <div className="flex items-center gap-2 p-2">
+          {/* Mobile Back Button */}
+          {isMobile && (
+            <button
+              onClick={() => setMobileView('search')}
+              className="p-2 rounded-lg hover:bg-light-200 dark:hover:bg-dark-200 text-black dark:text-white transition-colors lg:hidden"
+              title="Back to search"
+            >
+              <ChevronLeft size={20} />
+            </button>
+          )}
           <button
             onClick={goBack}
             disabled={!canGoBack}
