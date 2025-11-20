@@ -1,249 +1,161 @@
-# Perplexica 🔍
+# Pro Comet 🚀
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/ItzCrazyKns/Perplexica?style=social)](https://github.com/ItzCrazyKns/Perplexica/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/ItzCrazyKns/Perplexica?style=social)](https://github.com/ItzCrazyKns/Perplexica/network/members)
-[![GitHub watchers](https://img.shields.io/github/watchers/ItzCrazyKns/Perplexica?style=social)](https://github.com/ItzCrazyKns/Perplexica/watchers)
-[![Docker Pulls](https://img.shields.io/docker/pulls/itzcrazykns1337/perplexica?color=blue)](https://hub.docker.com/r/itzcrazykns1337/perplexica)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ItzCrazyKns/Perplexica/blob/master/LICENSE)
-[![GitHub last commit](https://img.shields.io/github/last-commit/ItzCrazyKns/Perplexica?color=green)](https://github.com/ItzCrazyKns/Perplexica/commits/master)
-[![Discord](https://dcbadge.limes.pink/api/server/26aArMy8tT?style=flat)](https://discord.gg/26aArMy8tT)
-
-Perplexica is a **privacy-focused AI answering engine** that runs entirely on your own hardware. It combines knowledge from the vast internet with support for **local LLMs** (Ollama) and cloud providers (OpenAI, Claude, Groq), delivering accurate answers with **cited sources** while keeping your searches completely private.
+A **mobile-first AI search engine** with a beautiful liquid design inspired by Apple's aesthetics. Built for fun and optimized for the web, featuring glassmorphism UI, integrated browser, and intelligent search capabilities.
 
 ![preview](.assets/perplexica-screenshot.png)
 
-Want to know more about its architecture and how it works? You can read it [here](https://github.com/ItzCrazyKns/Perplexica/tree/master/docs/architecture/README.md).
+**Note**: This is a personal project by [Suhaib](https://github.com/Suhaib3100) - not intended for open-source distribution. Made for learning and experimentation with modern web technologies and AI integration.
 
-## ✨ Features
+## ✨ What's Inside
 
-🤖 **Support for all major AI providers** - Use local LLMs through Ollama or connect to OpenAI, Anthropic Claude, Google Gemini, Groq, and more. Mix and match models based on your needs.
+🎨 **Apple Liquid Design** - Pure black dark theme with glassmorphism effects, smooth animations, and gradient accents inspired by Apple's design language.
 
-⚡ **Smart search modes** - Choose Balanced Mode for everyday searches, Fast Mode when you need quick answers, or wait for Quality Mode (coming soon) for deep research.
+📱 **Mobile-First UX** - Optimized for touch interactions with bottom navigation, swipe gestures, and mobile app-style onboarding flow.
 
-🎯 **Six specialized focus modes** - Get better results with modes designed for specific tasks: Academic papers, YouTube videos, Reddit discussions, Wolfram Alpha calculations, writing assistance, or general web search.
+🌐 **Integrated Browser** - Quick-switch between search and web browsing with floating action buttons and seamless transitions.
 
-🔍 **Web search powered by SearxNG** - Access multiple search engines while keeping your identity private. Support for Tavily and Exa coming soon for even better results.
+🤖 **Multiple AI Providers** - Support for OpenAI, Anthropic Claude, Google Gemini, Groq, and local LLMs through Ollama.
 
-📷 **Image and video search** - Find visual content alongside text results. Search isn't limited to just articles anymore.
+🔍 **Smart Search Modes** - Balanced, Fast, and specialized focus modes for Academic, YouTube, Reddit, and more.
 
-📄 **File uploads** - Upload documents and ask questions about them. PDFs, text files, images - Perplexica understands them all.
+📷 **Rich Media Search** - Find images, videos, and web content all in one place powered by SearxNG.
 
-🌐 **Search specific domains** - Limit your search to specific websites when you know where to look. Perfect for technical documentation or research papers.
+📄 **File Upload Support** - Ask questions about your documents, PDFs, and images.
 
-💡 **Smart suggestions** - Get intelligent search suggestions as you type, helping you formulate better queries.
+✨ **Welcome & Onboarding** - Beautiful 4-slide carousel with authentication flow for first-time users.
 
-📚 **Discover** - Browse interesting articles and trending content throughout the day. Stay informed without even searching.
+⚙️ **Account Management** - Profile settings, logout, and replay onboarding anytime from settings.
 
-🕒 **Search history** - Every search is saved locally so you can revisit your discoveries anytime. Your research is never lost.
+🎯 **Custom Features** - Weather widgets, news cards, citation sources, and thinking process visualization.
 
-✨ **More coming soon** - We're actively developing new features based on community feedback. Join our Discord to help shape Perplexica's future!
+## 🚀 Quick Start
 
-## Sponsors
+### Running with Docker (Recommended)
 
-Perplexica's development is powered by the generous support of our sponsors. Their contributions help keep this project free, open-source, and accessible to everyone.
-
-<div align="center">
-  
-  
-<a href="https://www.warp.dev/perplexica">
-  <img alt="Warp Terminal" src=".assets/sponsers/warp.png" width="100%">
-</a>
-
-**[Warp](https://www.warp.dev/perplexica)** - The AI-powered terminal revolutionizing development workflows
-
-</div>
-
-## Installation
-
-There are mainly 2 ways of installing Perplexica - With Docker, Without Docker. Using Docker is highly recommended.
-
-### Getting Started with Docker (Recommended)
-
-Perplexica can be easily run using Docker. Simply run the following command:
+The easiest way to run Pro Comet locally:
 
 ```bash
-docker run -d -p 3000:3000 -v perplexica-data:/home/perplexica/data -v perplexica-uploads:/home/perplexica/uploads --name perplexica itzcrazykns1337/perplexica:latest
+docker run -d -p 3000:3000 -v perplexica-data:/home/perplexica/data -v perplexica-uploads:/home/perplexica/uploads --name pro-comet perplexica:latest
 ```
 
-This will pull and start the Perplexica container with the bundled SearxNG search engine. Once running, open your browser and navigate to http://localhost:3000. You can then configure your settings (API keys, models, etc.) directly in the setup screen.
+This starts Pro Comet with the bundled SearxNG search engine. Open http://localhost:3000 and complete the onboarding flow to get started.
 
-**Note**: The image includes both Perplexica and SearxNG, so no additional setup is required. The `-v` flags create persistent volumes for your data and uploaded files.
+### Building from Source
 
-#### Using Perplexica with Your Own SearxNG Instance
-
-If you already have SearxNG running, you can use the slim version of Perplexica:
-
-```bash
-docker run -d -p 3000:3000 -e SEARXNG_API_URL=http://your-searxng-url:8080 -v perplexica-data:/home/perplexica/data -v perplexica-uploads:/home/perplexica/uploads --name perplexica itzcrazykns1337/perplexica:slim-latest
-```
-
-**Important**: Make sure your SearxNG instance has:
-
-- JSON format enabled in the settings
-- Wolfram Alpha search engine enabled
-
-Replace `http://your-searxng-url:8080` with your actual SearxNG URL. Then configure your AI provider settings in the setup screen at http://localhost:3000.
-
-#### Advanced Setup (Building from Source)
-
-If you prefer to build from source or need more control:
-
-1. Ensure Docker is installed and running on your system.
-2. Clone the Perplexica repository:
-
+1. Clone this repository:
    ```bash
-   git clone https://github.com/ItzCrazyKns/Perplexica.git
+   git clone https://github.com/Suhaib3100/pro-comet.git
+   cd pro-comet
    ```
 
-3. After cloning, navigate to the directory containing the project files.
-
-4. Build and run using Docker:
-
+2. Build and run:
    ```bash
    docker build -t perplexica .
-   docker run -d -p 3000:3000 -v perplexica-data:/home/perplexica/data -v perplexica-uploads:/home/perplexica/uploads --name perplexica perplexica
+   docker run -d -p 3000:3000 -v perplexica-data:/home/perplexica/data -v perplexica-uploads:/home/perplexica/uploads --name pro-comet perplexica
    ```
 
-5. Access Perplexica at http://localhost:3000 and configure your settings in the setup screen.
+3. Access at http://localhost:3000 and complete the mobile-style onboarding flow.
 
-**Note**: After the containers are built, you can start Perplexica directly from Docker without having to open a terminal.
+### Development Setup (Without Docker)
 
-### Non-Docker Installation
-
-1. Install SearXNG and allow `JSON` format in the SearXNG settings. Make sure Wolfram Alpha search engine is also enabled.
-2. Clone the repository:
-
+1. Install SearXNG locally with JSON format and Wolfram Alpha enabled
+2. Clone and install dependencies:
    ```bash
-   git clone https://github.com/ItzCrazyKns/Perplexica.git
-   cd Perplexica
+   git clone https://github.com/Suhaib3100/pro-comet.git
+   cd pro-comet
+   npm install
    ```
 
-3. Install dependencies:
-
-   ```bash
-   npm i
-   ```
-
-4. Build the application:
-
+3. Build and start:
    ```bash
    npm run build
-   ```
-
-5. Start the application:
-
-   ```bash
    npm run start
    ```
 
-6. Open your browser and navigate to http://localhost:3000 to complete the setup and configure your settings (API keys, models, SearxNG URL, etc.) in the setup screen.
+4. Open http://localhost:3000 and configure your AI providers in settings.
 
-**Note**: Using Docker is recommended as it simplifies the setup process, especially for managing environment variables and dependencies.
+## 🎨 Tech Stack
 
-See the [installation documentation](https://github.com/ItzCrazyKns/Perplexica/tree/master/docs/installation) for more information like updating, etc.
+- **Next.js 15.2.2** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Custom glassmorphism utilities
+- **Framer Motion** - Smooth animations
+- **Zustand** - State management
+- **SearxNG** - Privacy-focused search aggregation
+- **Docker** - Containerized deployment
 
-### Troubleshooting
+## 📱 Mobile Features
 
-#### Local OpenAI-API-Compliant Servers
+The app is specifically optimized for mobile web browsers:
 
-If Perplexica tells you that you haven't configured any chat model providers, ensure that:
+- **Bottom Navigation** - Thumb-friendly navigation with glass effects
+- **Swipe Gestures** - Natural mobile interactions
+- **Onboarding Flow** - 4-slide welcome + auth screens
+- **Touch Optimized** - Large tap targets, smooth transitions
+- **Responsive Design** - Works beautifully on all screen sizes
+- **Browser Toggle** - Quick switch between chat and web view
 
-1. Your server is running on `0.0.0.0` (not `127.0.0.1`) and on the same port you put in the API URL.
-2. You have specified the correct model name loaded by your local LLM server.
-3. You have specified the correct API key, or if one is not defined, you have put _something_ in the API key field and not left it empty.
+## 🛠️ Configuration
 
-#### Ollama Connection Errors
+After first launch, configure via Settings:
 
-If you're encountering an Ollama connection error, it is likely due to the backend being unable to connect to Ollama's API. To fix this issue you can:
+- **AI Providers**: Add API keys for OpenAI, Claude, Gemini, Groq, or Ollama
+- **Search Settings**: Customize SearxNG URL and search behavior
+- **Account**: Manage profile, logout, or replay onboarding
+- **Theme**: Already optimized with dark glassmorphism theme
 
-1. **Check your Ollama API URL:** Ensure that the API URL is correctly set in the settings menu.
-2. **Update API URL Based on OS:**
+## 🔧 Troubleshooting
 
-   - **Windows:** Use `http://host.docker.internal:11434`
-   - **Mac:** Use `http://host.docker.internal:11434`
-   - **Linux:** Use `http://<private_ip_of_host>:11434`
+### Ollama Connection Issues
 
-   Adjust the port number if you're using a different one.
+If you see Ollama connection errors:
 
-3. **Linux Users - Expose Ollama to Network:**
+1. Check API URL in Settings → Models
+2. Use correct URL for your OS:
+   - **Windows/Mac**: `http://host.docker.internal:11434`
+   - **Linux**: `http://<your_local_ip>:11434`
+3. **Linux users**: Expose Ollama to network by adding `Environment="OLLAMA_HOST=0.0.0.0:11434"` to `/etc/systemd/system/ollama.service`, then:
+   ```bash
+   systemctl daemon-reload
+   systemctl restart ollama
+   ```
 
-   - Inside `/etc/systemd/system/ollama.service`, you need to add `Environment="OLLAMA_HOST=0.0.0.0:11434"`. (Change the port number if you are using a different one.) Then reload the systemd manager configuration with `systemctl daemon-reload`, and restart Ollama by `systemctl restart ollama`. For more information see [Ollama docs](https://github.com/ollama/ollama/blob/main/docs/faq.md#setting-environment-variables-on-linux)
+### SearxNG Not Working
 
-   - Ensure that the port (default is 11434) is not blocked by your firewall.
+Ensure your SearxNG instance:
+- Has JSON format enabled
+- Has Wolfram Alpha engine enabled
+- Is accessible at the configured URL (default: `http://localhost:8080`)
 
-#### Lemonade Connection Errors
+## 🎯 Future Ideas
 
-If you're encountering a Lemonade connection error, it is likely due to the backend being unable to connect to Lemonade's API. To fix this issue you can:
+Potential features to explore:
 
-1. **Check your Lemonade API URL:** Ensure that the API URL is correctly set in the settings menu.
-2. **Update API URL Based on OS:**
+- 🎤 Voice search and voice responses
+- 📖 AI reading mode with article extraction
+- 📚 Smart bookmark collections
+- 🔒 Privacy dashboard with tracker blocking
+- 🌐 Offline mode with cached responses
+- 📸 Image upload for visual search
+- 🎨 Theme customization builder
 
-   - **Windows:** Use `http://host.docker.internal:8000`
-   - **Mac:** Use `http://host.docker.internal:8000`
-   - **Linux:** Use `http://<private_ip_of_host>:8000`
+## 📝 About
 
-   Adjust the port number if you're using a different one.
+**Pro Comet** is a personal learning project exploring:
+- Modern web design (glassmorphism, liquid aesthetics)
+- Mobile-first development
+- AI integration and LLM orchestration
+- Docker containerization
+- TypeScript and Next.js 15
 
-3. **Ensure Lemonade Server is Running:**
+Built by [Suhaib](https://github.com/Suhaib3100) for fun and experimentation. Not intended as an open-source project or for public distribution.
 
-   - Make sure your Lemonade server is running and accessible on the configured port (default is 8000).
-   - Verify that Lemonade is configured to accept connections from all interfaces (`0.0.0.0`), not just localhost (`127.0.0.1`).
-   - Ensure that the port (default is 8000) is not blocked by your firewall.
+**Based on**: Originally forked from [Perplexica](https://github.com/ItzCrazyKns/Perplexica) by ItzCrazyKns, but heavily modified with custom UI/UX focused on mobile web experience.
 
-## Using as a Search Engine
+## ⚖️ License
 
-If you wish to use Perplexica as an alternative to traditional search engines like Google or Bing, or if you want to add a shortcut for quick access from your browser's search bar, follow these steps:
+This is a personal project. The original Perplexica project is MIT licensed. This fork contains significant custom modifications and is maintained separately for learning purposes.
 
-1. Open your browser's settings.
-2. Navigate to the 'Search Engines' section.
-3. Add a new site search with the following URL: `http://localhost:3000/?q=%s`. Replace `localhost` with your IP address or domain name, and `3000` with the port number if Perplexica is not hosted locally.
-4. Click the add button. Now, you can use Perplexica directly from your browser's search bar.
+---
 
-## Using Perplexica's API
-
-Perplexica also provides an API for developers looking to integrate its powerful search engine into their own applications. You can run searches, use multiple models and get answers to your queries.
-
-For more details, check out the full documentation [here](https://github.com/ItzCrazyKns/Perplexica/tree/master/docs/API/SEARCH.md).
-
-## Expose Perplexica to network
-
-Perplexica runs on Next.js and handles all API requests. It works right away on the same network and stays accessible even with port forwarding.
-
-## One-Click Deployment
-
-[![Deploy to Sealos](https://raw.githubusercontent.com/labring-actions/templates/main/Deploy-on-Sealos.svg)](https://usw.sealos.io/?openapp=system-template%3FtemplateName%3Dperplexica)
-[![Deploy to RepoCloud](https://d16t0pc4846x52.cloudfront.net/deploylobe.svg)](https://repocloud.io/details/?app_id=267)
-[![Run on ClawCloud](https://raw.githubusercontent.com/ClawCloud/Run-Template/refs/heads/main/Run-on-ClawCloud.svg)](https://template.run.claw.cloud/?referralCode=U11MRQ8U9RM4&openapp=system-fastdeploy%3FtemplateName%3Dperplexica)
-[![Deploy on Hostinger](https://assets.hostinger.com/vps/deploy.svg)](https://www.hostinger.com/vps/docker-hosting?compose_url=https://raw.githubusercontent.com/ItzCrazyKns/Perplexica/refs/heads/master/docker-compose.yaml)
-
-## Upcoming Features
-
-- [x] Add settings page
-- [x] Adding support for local LLMs
-- [x] History Saving features
-- [x] Introducing various Focus Modes
-- [x] Adding API support
-- [x] Adding Discover
-- [ ] Finalizing Copilot Mode
-
-## Support Us
-
-If you find Perplexica useful, consider giving us a star on GitHub. This helps more people discover Perplexica and supports the development of new features. Your support is greatly appreciated.
-
-### Donations
-
-We also accept donations to help sustain our project. If you would like to contribute, you can use the following options to donate. Thank you for your support!
-
-| Ethereum                                              |
-| ----------------------------------------------------- |
-| Address: `0xB025a84b2F269570Eb8D4b05DEdaA41D8525B6DD` |
-
-## Contribution
-
-Perplexica is built on the idea that AI and large language models should be easy for everyone to use. If you find bugs or have ideas, please share them in via GitHub Issues. For more information on contributing to Perplexica you can read the [CONTRIBUTING.md](CONTRIBUTING.md) file to learn more about Perplexica and how you can contribute to it.
-
-## Help and Support
-
-If you have any questions or feedback, please feel free to reach out to us. You can create an issue on GitHub or join our Discord server. There, you can connect with other users, share your experiences and reviews, and receive more personalized help. [Click here](https://discord.gg/EFwsmQDgAu) to join the Discord server. To discuss matters outside of regular support, feel free to contact me on Discord at `itzcrazykns`.
-
-Thank you for exploring Perplexica, the AI-powered search engine designed to enhance your search experience. We are constantly working to improve Perplexica and expand its capabilities. We value your feedback and contributions which help us make Perplexica even better. Don't forget to check back for updates and new features!
+**Note**: This project is actively being experimented with. Expect frequent changes, bugs, and unfinished features. Use at your own risk! 🚀
