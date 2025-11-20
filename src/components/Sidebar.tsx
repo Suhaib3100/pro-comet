@@ -154,7 +154,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-full z-50 flex flex-row items-center justify-around glass-strong px-3 py-3 border-t border-white/10 lg:hidden backdrop-blur-2xl">
+      <div className="fixed bottom-0 w-full z-50 flex flex-row items-center justify-around glass-strong px-3 py-3 border-t border-white/10 lg:hidden backdrop-blur-2xl pb-[env(safe-area-inset-bottom)] transition-all duration-300">
         {navLinks.map((link, i) => (
           <Link
             href={link.href}

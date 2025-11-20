@@ -9,6 +9,7 @@ import {
   ExternalLink,
   Globe,
   MessageSquare,
+  Search,
 } from 'lucide-react';
 import { useState, useEffect, KeyboardEvent } from 'react';
 import { cn } from '@/lib/utils';
@@ -93,7 +94,7 @@ const BrowserView = () => {
   return (
     <div className="flex flex-col h-full glass-strong border-l border-white/10">
       {/* Browser Controls */}
-      <div className="flex flex-col border-b border-white/10 glass backdrop-blur-2xl">
+      <div className="flex flex-col border-b border-white/10 glass backdrop-blur-2xl pt-[env(safe-area-inset-top)] transition-all duration-300">
         {/* Top bar with navigation controls */}
         <div className="flex items-center gap-1.5 sm:gap-2 p-2 sm:p-3">
           {/* Mobile Back to Chat Button */}
@@ -269,14 +270,60 @@ const BrowserView = () => {
             </div>
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center h-full text-center p-8">
-            <Globe size={64} className="text-white/20 mb-4" />
-            <h3 className="text-lg font-medium text-white mb-2">
-              No page loaded
+          <div className="flex flex-col items-center justify-center h-full text-center p-6 w-full max-w-md mx-auto">
+            <div className="mb-8 relative">
+              <div className="absolute inset-0 blur-3xl bg-purple-500/20 rounded-full" />
+              <Globe size={80} className="text-white/80 relative z-10" />
+            </div>
+            
+            <h3 className="text-2xl font-bold text-white mb-2">
+              Pro Comet Browser
             </h3>
-            <p className="text-sm text-white/50 max-w-md">
-              Tap a link from search results or enter a URL above
+            <p className="text-white/50 mb-8">
+              Search the web or enter a URL
             </p>
+
+            <div className="w-full glass liquid-border rounded-2xl p-1.5 flex items-center gap-3 mb-8 group focus-within:bg-white/10 smooth-transition">
+              <Search className="text-white/50 ml-3" size={20} />
+              <input
+                type="text"
+                value={urlInput}
+                onChange={(e) => setUrlInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Search or type URL..."
+                className="flex-1 bg-transparent border-none outline-none text-white placeholder:text-white/30 h-10"
+              />
+              <button 
+                onClick={handleUrlSubmit}
+                className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white smooth-transition"
+              >
+                <ArrowRight size={18} />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-4 gap-4 w-full">
+              {[
+                { name: 'Google', url: 'https://google.com', icon: 'G' },
+                { name: 'Bing', url: 'https://bing.com', icon: 'B' },
+                { name: 'Wiki', url: 'https://wikipedia.org', icon: 'W' },
+                { name: 'News', url: 'https://news.google.com', icon: 'N' },
+              ].map((site) => (
+                <button
+                  key={site.name}
+                  onClick={() => {
+                    setUrlInput(site.url);
+                    navigateTo(site.url);
+                    setIsLoading(true);
+                  }}
+                  className="flex flex-col items-center gap-2 group"
+                >
+                  <div className="w-12 h-12 rounded-2xl glass liquid-border flex items-center justify-center text-white font-bold text-lg group-hover:bg-white/10 smooth-transition">
+                    {site.icon}
+                  </div>
+                  <span className="text-xs text-white/50">{site.name}</span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
       </div>

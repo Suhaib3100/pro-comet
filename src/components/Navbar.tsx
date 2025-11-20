@@ -228,7 +228,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="sticky -mx-3 sm:-mx-4 lg:mx-0 top-0 z-40 glass-strong backdrop-blur-3xl border-b border-white/10">
+    <div className="sticky -mx-3 sm:-mx-4 lg:mx-0 top-0 z-40 glass-strong backdrop-blur-3xl border-b border-white/10 pt-[env(safe-area-inset-top)] transition-all duration-300">
       <div className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center min-w-0">
