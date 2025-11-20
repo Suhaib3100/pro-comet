@@ -37,20 +37,16 @@ export default function AuthProvider({
       } catch {
         setSetupComplete(false);
       }
-
-      if (!authStatus && pathname !== "/login") {
-        router.push("/login");
-      } else if (authStatus && pathname === "/login") {
-        router.push("/");
-      }
+      
+      // Removed redirect logic to allow OnboardingFlow to handle auth
     };
 
     void init();
   }, [pathname, router]);
 
-  if ((isAuthenticated === null || setupComplete === null) && pathname !== "/login") {
+  if (setupComplete === null) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="flex items-center justify-center min-h-screen bg-black">
         <Loader2 className="w-12 h-12 text-blue-500 animate-spin" />
       </div>
     );

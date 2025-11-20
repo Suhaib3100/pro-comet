@@ -30,6 +30,7 @@ const BrowserView = () => {
   const [urlInput, setUrlInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [useProxy, setUseProxy] = useState(false);
 
   useEffect(() => {
     if (currentUrl) {
@@ -199,7 +200,7 @@ const BrowserView = () => {
             )}
             <iframe
               key={currentUrl}
-              src={currentUrl}
+              src={useProxy ? `/api/proxy?url=${encodeURIComponent(currentUrl)}` : currentUrl}
               className="w-full h-full border-0"
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-modals allow-downloads allow-popups-to-escape-sandbox allow-top-navigation"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -210,6 +211,20 @@ const BrowserView = () => {
               title="Browser View"
               referrerPolicy="no-referrer-when-downgrade"
             />
+            
+            {/* Proxy Toggle */}
+            <div className="absolute top-4 right-4 z-30">
+              <button
+                onClick={() => setUseProxy(!useProxy)}
+                className={cn(
+                  'glass-strong liquid-border rounded-2xl px-4 py-2 text-xs font-medium smooth-transition active:scale-95 shadow-xl',
+                  useProxy ? 'bg-purple-500/20 text-purple-300' : 'text-white/70'
+                )}
+                title="Toggle proxy to bypass frame restrictions"
+              >
+                {useProxy ? '🔓 Proxy ON' : '🔒 Proxy OFF'}
+              </button>
+            </div>
             
             {/* CORS Blocked Message Overlay */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 glass-strong liquid-border rounded-3xl p-6 max-w-sm mx-4 text-center pointer-events-none z-20" style={{display: 'none'}} id="cors-message">
@@ -249,7 +264,7 @@ const BrowserView = () => {
             {/* Quick tip for blocked sites */}
             <div className="absolute bottom-20 sm:bottom-4 left-1/2 transform -translate-x-1/2 glass-strong liquid-border rounded-2xl px-4 py-2.5 shadow-xl pointer-events-none max-w-[90%] sm:max-w-none">
               <p className="text-xs text-white/70 text-center">
-                💡 Some sites block frames. Use external link button if page won't load
+                💡 Toggle Proxy ON if site won't load • Some sites may still block
               </p>
             </div>
           </>
