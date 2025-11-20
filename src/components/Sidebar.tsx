@@ -152,25 +152,34 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-full z-50 flex flex-row items-center gap-x-6 glass-strong px-4 py-4 border-t border-white/5 lg:hidden">
+      <div className="fixed bottom-0 w-full z-50 flex flex-row items-center justify-around glass-strong px-3 py-3 border-t border-white/10 lg:hidden backdrop-blur-2xl">
         {navLinks.map((link, i) => (
           <Link
             href={link.href}
             key={i}
             className={cn(
-              'relative flex flex-col items-center space-y-1 text-center w-full smooth-transition',
+              'relative flex flex-col items-center space-y-1 text-center px-4 py-2 rounded-2xl smooth-transition min-w-[70px]',
               link.active
-                ? 'text-white'
-                : 'text-white/60',
+                ? 'text-white bg-white/10'
+                : 'text-white/50',
             )}
           >
-            {link.active && (
-              <div className="absolute top-0 -mt-4 h-1 w-full rounded-b-lg bg-white/80" />
-            )}
-            <link.icon />
-            <p className="text-xs">{link.label}</p>
+            <link.icon size={22} strokeWidth={link.active ? 2.5 : 2} />
+            <p className="text-[10px] font-medium">{link.label}</p>
           </Link>
         ))}
+        <button
+          onClick={handleBrowserToggle}
+          className={cn(
+            'relative flex flex-col items-center space-y-1 text-center px-4 py-2 rounded-2xl smooth-transition min-w-[70px]',
+            isBrowserOpen
+              ? 'text-white bg-white/10'
+              : 'text-white/50',
+          )}
+        >
+          <Globe size={22} strokeWidth={isBrowserOpen ? 2.5 : 2} />
+          <p className="text-[10px] font-medium">Browser</p>
+        </button>
       </div>
 
       <Layout>{children}</Layout>
