@@ -151,16 +151,27 @@ const BrowserView = () => {
           </button>
 
           {/* URL Bar */}
-          <div className="flex-1 flex items-center gap-2 glass-strong rounded-2xl px-3 py-2 liquid-border">
-            <Globe size={14} className="text-white/50 hidden sm:block" />
+          <div className="flex-1 flex items-center gap-2 glass-strong rounded-2xl px-4 py-2.5 liquid-border shadow-inner shadow-black/20">
+            <Globe size={16} className="text-purple-400/70 hidden sm:block" />
             <input
               type="text"
               value={urlInput}
               onChange={(e) => setUrlInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="URL or search..."
-              className="flex-1 bg-transparent outline-none text-xs sm:text-sm text-white placeholder:text-white/40"
+              placeholder="Search or enter website..."
+              className="flex-1 bg-transparent outline-none text-sm text-white placeholder:text-white/30"
             />
+            {urlInput && (
+              <button 
+                onClick={() => {
+                  setUrlInput('');
+                  // Optional: focus input
+                }}
+                className="p-1 rounded-full hover:bg-white/10 text-white/40 hover:text-white/80 smooth-transition"
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
 
           <button

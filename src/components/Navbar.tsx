@@ -234,9 +234,10 @@ const Navbar = () => {
           <div className="flex items-center min-w-0">
             <a
               href="/"
-              className="lg:hidden mr-2 sm:mr-3 p-1.5 sm:p-2 -ml-1 sm:-ml-2 rounded-xl hover:bg-white/5 smooth-transition active:scale-95"
+              className="lg:hidden mr-2 sm:mr-3 p-2 sm:p-2.5 -ml-1 sm:-ml-2 rounded-xl glass liquid-border hover:bg-white/10 smooth-transition active:scale-95 flex items-center gap-2"
             >
-              <Edit size={16} className="sm:w-[18px] sm:h-[18px] text-white/70" />
+              <Edit size={18} className="text-white/90" />
+              <span className="text-xs font-medium text-white/90 hidden sm:block">New Chat</span>
             </a>
             <div className="hidden lg:flex items-center gap-2 text-white/50 min-w-0">
               <Clock size={14} />
